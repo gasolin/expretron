@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./start-app.js",
-    "lint": "npm run eslint",
-    "eslint": "eslint *.js routes views",
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "eslint *.js routes views public/js",
+    "stylelint": "stylelint public/style/**/*.css",
+    "presetup": "shx rm -Rf public/vendor && shx mkdir public/vendor",
+    "setup": "npm run prepare-css",
+    "prepare-css": "shx cp -r node_modules/materialize-css/dist public/vendor/materialize",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +31,8 @@
     "electron-prebuilt": "^1.0.1",
     "eslint": "^2.9.0",
     "eslint-config-defaults": "^9.0.0",
+    "materialize-css": "^0.97.6",
+    "shx": "^0.1.2",
     "stylelint": "^6.3.3",
     "stylelint-config-standard": "^7.0.0"
   },
