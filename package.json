@@ -1,0 +1,38 @@
+{
+  "name": "expretron",
+  "version": "0.1.0",
+  "description": "Express.js web server wrapped in Electron desktop runtime for any desktop application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./start-app.js",
+    "lint": "npm run eslint",
+    "eslint": "eslint *.js routes views",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gasolin/expretron.git"
+  },
+  "keywords": [
+    "electron",
+    "express"
+  ],
+  "author": "Fred Lin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gasolin/expretron/issues"
+  },
+  "homepage": "https://github.com/gasolin/expretron#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^1.0.1",
+    "eslint": "^2.9.0",
+    "eslint-config-defaults": "^9.0.0",
+    "stylelint": "^6.3.3",
+    "stylelint-config-standard": "^7.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4"
+  }
+}
