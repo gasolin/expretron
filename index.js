@@ -23,22 +23,34 @@ desktop.on('window-all-closed', function() {
 });
 
 desktop.on('ready', function() {
-  mainWindow = new BrowserWindow({
+  if (!mainWindow) {
+    mainWindow = createMainWindow();
+    setupExpress();
+  }
+});
+
+function createMainWindow() {
+  const win = new BrowserWindow({
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: false
     },
-    width: 640,
-    height: 400
-  });
+		width: 600,
+		height: 400
+	});
 
-  setupExpress();
-});
+	// win.loadURL(`file://${__dirname}/index.html`);
+	win.on('closed', onClosed);
+  return win;
+}
 
-mainWindow.on('closed', function() {
+function onClosed() {
+	// dereference the window
+  // for multiple windows store them in an array
   mainWindow = null;
+  // close web server
   server.close();
-});
+}
 
 function setupExpress() {
   app.use(bodyParser.json());
