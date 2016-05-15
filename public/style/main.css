@@ -8,17 +8,3 @@ mark {
 .hidden {
   display: none;
 }
-
-body {
-  padding-top: 50px;
-}
-
-@media screen and (max-width: 768px) {
-  body {
-    padding-top: 50px;
-  }
-}
-
-.navbar {
-  margin-bottom: 0;
-}

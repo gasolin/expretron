@@ -3,13 +3,38 @@
   <head>
     <meta charset="utf-8">
     <title>Expretron</title>
-    <link rel="stylesheet" href="public/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="public/vendor/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <link rel="stylesheet" href="public/style/main.css">
   </head>
   <body>
+    <nav>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#!">First Sidebar Link</a></li>
+        <li><a href="#!">Second Sidebar Link</a></li>
+      </ul>
+      <ul id="slide-out" class="side-nav">
+        <li><a href="#!">First Sidebar Link</a></li>
+        <li><a href="#!">Second Sidebar Link</a></li>
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    </nav>
     <div class="container">
-      <header><h1>Electron + Express boilerplate</h1></header>
-      <section class="main"></section>
+      <!-- <header>
+      </header> -->
+      <section class="main">
+        <h1>Electron + Express boilerplate</h1>
+      </section>
       <footer></footer>
     </div>
+
+    <!--Import jQuery before materialize.js-->
+    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+    <script type="text/javascript" src="public/vendor/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="public/vendor/materialize/js/materialize.min.js"></script>
   </body>
 </html>
