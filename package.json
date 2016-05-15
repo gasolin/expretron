@@ -9,9 +9,12 @@
     "eslint": "eslint *.js routes views public/js",
     "stylelint": "stylelint public/style/**/*.css",
     "presetup": "shx rm -Rf public/vendor && shx mkdir public/vendor",
-    "setup": "npm run prepare-css",
-    "prepare-css": "shx cp -r node_modules/materialize-css/dist public/vendor/materialize",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "setup": "npm run cpMaterialize && npm run cpJquery",
+    "cpMaterialize": "shx cp -r node_modules/materialize-css/dist public/vendor/materialize",
+    "precpJquery": "shx mkdir public/vendor/jquery",
+    "cpJquery": "shx cp node_modules/materialize-css/node_modules/jquery/dist/jquery.min.js public/vendor/jquery/jquery.min.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all"
   },
   "repository": {
     "type": "git",

@@ -9,3 +9,17 @@ $ npm install
 # copy vendor libraries from node_modules to public/vendor
 $ npm setup
 ```
+
+## Run
+
+```
+$ npm run start
+```
+
+## Lint
+
+eslint & stylelint
+
+```
+$ npm run lint
+```
