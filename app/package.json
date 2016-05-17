@@ -1,11 +1,25 @@
 {
   "name": "expretron",
-  "version": "0.1.0",
+  "productName": "Electron Express Boilerplate",
   "description": "Express.js web server wrapped in Electron desktop runtime for any desktop application",
+  "version": "0.1.0",
+  "author": "Fred Lin",
+  "copyright": "© 2016, your company here",
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.15.1",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.4"
+  },
+  "packageNameTemplate": "{{name}}-v{{version}}-{{platform}}-{{arch}}",
+  "osx": {
+    "build": "1",
+    "identifier": "com.example.electron-boilerplate",
+    "LSApplicationCategoryType": "public.app-category.productivity",
+    "//codeSignIdentitiy": {
+      "dmg": "Developer ID Application: Company Name (APPIDENTITY)",
+      "MAS": "3rd Party Mac Developer Application: Company Name (APPIDENTITY)",
+      "MASInstaller": "3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
+    }
   }
 }

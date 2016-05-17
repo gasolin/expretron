@@ -1,4 +1,5 @@
 # Expretron
+[![Dependency Status](https://david-dm.org/gasolin/expretron.svg)](https://david-dm.org/gasolin/expretron)
 
 A boilerplate of modern Javascript dev environment.
 
