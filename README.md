@@ -7,19 +7,29 @@ A boilerplate of modern Javascript dev environment.
 ```
 $ npm install
 # copy vendor libraries from node_modules to public/vendor
-$ npm setup
+$ npm run setup
 ```
+
+`npm run setup` will copy app folder to build folder and put related frontend libraries into `build/public/vendor` folder.
 
 ## Run
 
 ```
-$ npm run start
+$ npm start
 ```
 
 ## Lint
 
-eslint & stylelint
+Do eslint (JS) & stylelint (CSS)
 
 ```
 $ npm run lint
 ```
+
+## test
+
+TBD
+
+## build / distribution
+
+TBD

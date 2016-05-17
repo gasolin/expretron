@@ -3,18 +3,10 @@
 const electron = require('electron');
 const desktop = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-
-const express = require('express');
-const http = require('http');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const app = express();
-
-const path = require('path');
-const PORT = normalizePort(process.env.PORT || '3000');
+const server = require('./server');
 
 var mainWindow = null;
-var server;
+var webServer;
 
 desktop.on('window-all-closed', function() {
   if (process.platform != 'darwin') {
@@ -25,7 +17,11 @@ desktop.on('window-all-closed', function() {
 desktop.on('ready', function() {
   if (!mainWindow) {
     mainWindow = createMainWindow();
-    setupExpress();
+    webServer = server.setupExpress(function() {
+      mainWindow.loadURL('http://127.0.0.1:' + server.PORT);
+      //comment this out when production
+      mainWindow.toggleDevTools();
+    });
   }
 });
 
@@ -35,12 +31,12 @@ function createMainWindow() {
     webPreferences: {
       nodeIntegration: false
     },
-		width: 600,
-		height: 400
-	});
+    width: 600,
+    height: 400
+  });
 
 	// win.loadURL(`file://${__dirname}/index.html`);
-	win.on('closed', onClosed);
+  win.on('closed', onClosed);
   return win;
 }
 
@@ -49,42 +45,5 @@ function onClosed() {
   // for multiple windows store them in an array
   mainWindow = null;
   // close web server
-  server.close();
-}
-
-function setupExpress() {
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({extended: false}));
-  app.use(cookieParser());
-  app.use('/public', express.static(path.join(__dirname, 'public')));
-
-  app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '/public/index.html'));
-  });
-
-  server = http.createServer(app);
-  server.listen(PORT, function() {
-    console.log('listening on *:' + PORT);
-  });
-  // server.on('error', onError);
-  server.on('listening', function() {
-    var addr = server.address();
-    var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-    console.log('Listening on ' + bind);
-
-    mainWindow.loadURL('http://127.0.0.1:' + addr.port);
-    //comment this out when production
-    mainWindow.toggleDevTools();
-  });
-};
-
-function normalizePort(val) {
-  var port = parseInt(val, 10);
-  if (isNaN(port)) {
-    return val;
-  }
-  if (port >= 0) {
-    return port;
-  }
-  return false;
+  webServer.close();
 }
