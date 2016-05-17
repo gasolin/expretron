@@ -56,10 +56,10 @@ function setupExpress() {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({extended: false}));
   app.use(cookieParser());
-  app.use('/public', express.static('public'));
+  app.use('/public', express.static(path.join(__dirname, 'public')));
 
   app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(path.join(__dirname, '/public/index.html'));
   });
 
   server = http.createServer(app);
@@ -72,8 +72,9 @@ function setupExpress() {
     var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
     console.log('Listening on ' + bind);
 
-    mainWindow.loadURL('http://127.0.0.1:3000');
-    // mainWindow.toggleDevTools();
+    mainWindow.loadURL('http://127.0.0.1:' + addr.port);
+    //comment this out when production
+    mainWindow.toggleDevTools();
   });
 };
 

@@ -1,0 +1,11 @@
+{
+  "name": "expretron",
+  "version": "0.1.0",
+  "description": "Express.js web server wrapped in Electron desktop runtime for any desktop application",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4"
+  }
+}

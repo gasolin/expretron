@@ -4,15 +4,16 @@
   "description": "Express.js web server wrapped in Electron desktop runtime for any desktop application",
   "main": "index.js",
   "scripts": {
+    "postinstall": "cd app && npm install",
     "start": "node ./start-app.js",
     "lint": "npm run eslint && npm run stylelint",
-    "eslint": "eslint *.js routes views public/js",
-    "stylelint": "stylelint public/style/**/*.css",
-    "presetup": "shx rm -Rf public/vendor && shx mkdir public/vendor",
+    "eslint": "eslint app/*.js app/routes app/views app/public/js",
+    "stylelint": "stylelint app/public/style/**/*.css",
+    "presetup": "shx rm -Rf build && shx cp -r app build && mkdir build/public/vendor",
     "setup": "npm run cpMaterialize && npm run cpJquery",
-    "cpMaterialize": "shx cp -r node_modules/materialize-css/dist public/vendor/materialize",
-    "precpJquery": "shx mkdir public/vendor/jquery",
-    "cpJquery": "shx cp node_modules/materialize-css/node_modules/jquery/dist/jquery.min.js public/vendor/jquery/jquery.min.js",
+    "cpMaterialize": "shx cp -r node_modules/materialize-css/dist build/public/vendor/materialize",
+    "precpJquery": "shx mkdir build/public/vendor/jquery",
+    "cpJquery": "shx cp node_modules/materialize-css/node_modules/jquery/dist/jquery.min.js build/public/vendor/jquery/jquery.min.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all"
   },
@@ -38,10 +39,5 @@
     "shx": "^0.1.2",
     "stylelint": "^6.3.3",
     "stylelint-config-standard": "^7.0.0"
-  },
-  "dependencies": {
-    "body-parser": "^1.15.1",
-    "cookie-parser": "^1.4.1",
-    "express": "^4.13.4"
   }
 }
