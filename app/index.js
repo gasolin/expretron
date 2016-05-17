@@ -2,7 +2,6 @@
 
 const electron = require('electron');
 const desktop = electron.app;
-const BrowserWindow = electron.BrowserWindow;
 const server = require('./server');
 
 var mainWindow = null;
@@ -17,6 +16,7 @@ desktop.on('window-all-closed', function() {
 desktop.on('ready', function() {
   if (!mainWindow) {
     mainWindow = createMainWindow();
+
     webServer = server.setupExpress(function() {
       mainWindow.loadURL('http://127.0.0.1:' + server.PORT);
       //comment this out when production
@@ -26,7 +26,7 @@ desktop.on('ready', function() {
 });
 
 function createMainWindow() {
-  const win = new BrowserWindow({
+  const win = new electron.BrowserWindow({
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: false
