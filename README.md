@@ -44,3 +44,11 @@ npm run dist:osx
 ```
 
 to generate OS specific build
+
+## What is included in this boilerplate?
+
+* [Materialize](http://materializecss.com/) CSS framework
+* [Express](http://expressjs.com) web server
+* [Electron](http://electron.atom.io/) web desktop runtime
+* [electron-builder](https://github.com/electron-userland/electron-builder) package and deploy Electron apps
+* [eslint](http://eslint.org/) for Javascript style check and [stylelint](https://github.com/stylelint/stylelint) for CSS style check
