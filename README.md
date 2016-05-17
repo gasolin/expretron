@@ -33,4 +33,14 @@ TBD
 
 ## build / distribution
 
-TBD
+```
+npm run dist
+```
+
+or
+
+```
+npm run dist:osx
+```
+
+to generate OS specific build
