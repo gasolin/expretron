@@ -43,14 +43,14 @@
   },
   "homepage": "https://github.com/gasolin/expretron#readme",
   "devDependencies": {
-    "electron-builder": "^3.23.0",
-    "electron-prebuilt": "^1.1.0",
-    "eslint": "^2.10.2",
+    "electron-builder": "^3.25.0",
+    "electron-prebuilt": "^1.2.0",
+    "eslint": "^2.11.1",
     "eslint-config-defaults": "^9.0.0",
     "materialize-css": "^0.97.6",
     "shx": "^0.1.2",
-    "stylelint": "^6.3.3",
-    "stylelint-config-standard": "^7.0.0",
+    "stylelint": "^6.5.1",
+    "stylelint-config-standard": "^8.0.0",
     "watch": "^0.18.0"
   },
   "build": {
